@@ -9,8 +9,17 @@ function displayRecipes(recipes) {
         recipeImageE1 = document.createElement("img");
         recipeImageE1.src = recipe.image;
         recipeImageE1.alt = "recipe image";
+        recipeTitleE1 = document.createElement("h2");
+        recipeIngredientsE1 = document.createElement("p");
+        recipeLinkE1 = document.createElement("a");
+        recipeLinkE1.href = recipe.sourceUrl;
+        recipeLinkE1.innerText = "Viiew Recipe";
+        recipeIngredientsE1.innerHTML = `<strong>Ingredients:</strong> ${recipe.extendedIngredients.map(ingredient => ingredient.original).join(",")}`;
+        recipeTitleE1.innerText = recipe.title;
         recipeItemE1.appendChild(recipeImageE1);
         recipesListE1.appendChild(recipeItemE1);
+        recipesListE1.appendChild(recipeTitleE1);
+        recipesListE1.appendChild(recipeIngredientsE1);
     });
 }
 async function getRecipes() {
